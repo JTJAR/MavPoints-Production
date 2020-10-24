@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'main_pages/base.html' %}
+{% load static %}
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{% static "css/NewsPage.css"%}" >
+	<title>Promotions</title>
+</head>
+
+<body>
+{% block content %}
+
+<p><!--DELETE AT SOME POINT, THOUGHT IT WAS FUNNY, CLAYTON-->
+    <img class = "undercons" src = "../../static/images/undercons.jpg" alt="Under Construction">
+</p>
+<div class = "body">
+	<p class = "points"> Coming Soon New Points Tracking System </p>
+        <p class = "article">Insert News Article </p>
+        <p class = "members">Welcome to our Newest Members!</p>
+	<p class = "newmems">New Members Here</p>
+</div>
+
+<div class = "bottom">
+	<p class = "p1">Contact Us                 |                  Privacy Info</p>
+	<p class = "p2">Admin portal</p>
+</div>
+
+{% endblock %}
+
+</body>
+
+
+
+</html>

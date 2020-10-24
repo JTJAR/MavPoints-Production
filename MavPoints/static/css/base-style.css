@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Navbar background color*/
+.topnav {
+  overflow: hidden;
+  background-color: #ff0000;
+}
+
+/*Text color, adjustments*/
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/*Hover color/text color when hover active*/
+.topnav a:hover {
+  background-color: #ffffff;
+  color: black;
+}
+
+/*Mav Points*/
+.topnav a.active {
+  background-color: #000000;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+/*Controls Login Button Position*/
+.topnav-right {
+  float: right;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
