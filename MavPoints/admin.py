@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from .models import Employee, Customer
+from .models import Customer
+# from .models import Employee
 
 
 class CustomerList(admin.ModelAdmin):

@@ -1,0 +1,7 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+  <h1>Your order was successful</h1>
+  <p>The required points have been subtracted from your account and your order has been processed.</p>
+  <a href="{% url 'shop:product_list' %}">Back to shop page</a>
+{% endblock %}

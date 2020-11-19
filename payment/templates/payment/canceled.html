@@ -1,0 +1,7 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+  <h1>Your payment has not been processed</h1>
+  <p>There were insufficient points in your rewards account.</p>
+  <a href="{% url 'shop:product_list' %}">Back to shop page</a>
+{% endblock %}
