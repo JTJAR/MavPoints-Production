@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'main_pages/base.html' %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Mav Points</title>
+    <link rel="stylesheet" href="{% static "css/base-style.css" %}">
+</head>
+{% block content %}
+<body>
+    <div>
+        <table class="table table-striped table-bordered table-hover">
+            {% for order in orders %}
+                <tr>
+                    <th>Order Number:</th>
+                    <td>{{ order.id }}</td>
+                </tr>
+                <tr>
+                    <th>Order Cost:</th>
+                    <td>{{ order.get_total_cost }}</td>
+                </tr>
+                <tr>
+                    <th>Order Time</th>
+                    <td>{{ order.created }}</td>
+                </tr>
+                <tr>
+                    <th>Was order Paid?:</th>
+                    <td>{{ order.paid }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+{% endblock %}
+</html>

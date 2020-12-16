@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'main_pages/base.html' %}
+
+{% block content %}
+    <h1 class="header">Current Account Information</h1>
+    <form method="POST" class="customer-form">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="save btn btn-default" value="Update">
+    </form>
+{% endblock %}
+</html>

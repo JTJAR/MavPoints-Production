@@ -6,6 +6,7 @@ from django.urls import reverse, reverse_lazy
 from .models import *
 from .forms import *
 from django.views import generic
+from orders.views import account_orders
 
 
 # def app_login(request):
@@ -87,6 +88,10 @@ def contact(request):
 # return render(request, 'main_pages/accounts.html',  /* MADE A PLACE HOLDER FOR ACCT OVERVIEW */
 # {'MavPoints': accounts}) #
 
+def account(request):
+    return render(request, 'main_pages/account_overview.html',
+                  {'MavPoints': account})
+
 
 @login_required()
 def rewards(request):
@@ -96,7 +101,7 @@ def rewards(request):
 
 @login_required()
 def home_employee(request):
-    return render(request, 'employee_pages/employee_home.html',
+    return render(request, 'main_pages/home.html',
                   {'Employee Home': home_employee})
 
 
@@ -122,6 +127,24 @@ def edit_customer(request, pk):
     else:
         form = CustomerChangeForm(instance=customer)
     return render(request, 'employee_pages/edit_customer.html', {'form': form})
+
+
+@login_required()
+def customer_info_change(request, pk):
+    customer_info = get_object_or_404(Customer, pk=pk)
+    if request.method == "POST":
+        form = ChangeMainInformationForm(request.POST, instance=customer_info)
+        if form.is_valid():
+            customer_info = form.save(commit=False)
+            customer_info.updated_date = timezone.now()
+            customer_info.save()
+            customer_info = Customer.objects.filter(created_date__lte=timezone.now())
+
+            return render(request, 'main_pages/home.html',
+                          {'customers': customer_info})
+    else:
+        form = ChangeMainInformationForm(instance=customer_info)
+    return render(request, 'main_pages/customer_info_change.html', {'form': form})
 
 
 @login_required()

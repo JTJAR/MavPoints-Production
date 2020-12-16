@@ -20,3 +20,12 @@ class CustomerChangeForm(UserChangeForm):
         fields = ('email', 'full_name',
                   'address', 'city', 'state', 'zipcode', 'phone_number',
                   'cust_bill_card', 'cust_bill_expiry', 'cust_bill_code',)
+
+
+class ChangeMainInformationForm(forms.ModelForm):
+    class Meta:
+        model = Customer
+        fields = ('email', 'full_name',
+                  'address', 'city', 'state', 'zipcode', 'phone_number',)
+
+

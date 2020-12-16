@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+{%  extends 'main_pages/base.html' %}
+{% load static %}
+{% block title %}
+    Account Overview
+{% endblock %}
+<body>
+    {% block content %}
+        <div  class="account_page">
+            <h1 class="header">
+                Account Overview
+            </h1>
+            <table class="page_table">
+                <tr>
+                    <td>
+                        <table class="account_information">
+                                <tr>
+                                    <th>Full Name:</th>
+                                    <td>{{ user.full_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Email:</th>
+                                    <td>{{ user.email }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Phone Number:</th>
+                                    <td>{{ user.phone_number }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Address:</th>
+                                    <td>{{ user.address }}</td>
+                                </tr>
+                                <tr>
+                                    <th>City:</th>
+                                    <td>{{ user.city }}</td>
+                                </tr>
+                                <tr>
+                                    <th>State:</th>
+                                    <td>{{ user.state }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Zipcode:</th>
+                                    <td>{{ user.zipcode }}</td>
+                                </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table class="account_management">
+                            <th>
+                                Total Account Points: {{ user.total_points }}
+                            </th>
+                            <tr>
+                                <td>
+                                    <a href="{% url 'MavPoints:customer info change' pk=user.pk %}"
+                                           class="btn btn-warning">Edit Account Information</a>
+                                </td>
+                            </tr>
+                            <!--
+                            <tr>
+                                <td>
+                                    <a href="{% url 'MavPoints:view_orders' %}"
+                                           class="btn btn-warning">View Orders</a>
+                                </td>
+                            </tr>
+                            -->
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    {% endblock %}
+</body>
+</html>

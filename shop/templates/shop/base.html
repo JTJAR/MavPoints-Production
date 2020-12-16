@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% extends 'main_pages/base.html' %}
 {% load static %}
 <html lang="en">
 <head>
@@ -8,37 +9,6 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/base-style.css' %}">
 </head>
 <body>
-    <div class="topnav" id="myTopnav">
-        {% if user.is_authenticated %}
-            {% if user.is_staff %}
-                <a href="{% url 'MavPoints:employee_home' %}" class="active">Employee Home Page</a>
-                <a href="{% url 'MavPoints:view_customers' %}">Customer List</a>
-            {% else %}
-                <a href="{% url 'MavPoints:home' %}" class="active">Mav Points</a>
-                <a href="{% url 'MavPoints:promotions' %}">Rewards</a>
-                <a href="{% url 'MavPoints:rewards' %}">Account Overview</a>
-                <a href="{% url 'MavPoints:rewards' %}">Promotions</a>
-                <a href="{% url 'MavPoints:contact' %}">Contact Us</a>
-                <a href="{% url 'shop:product_list' %}">Shop</a>
-            {% endif %}
-        {% else %}
-            <a href="{% url 'MavPoints:home' %}" class="active">Mav Points</a>
-            <a href="{% url 'MavPoints:create_account' %}">Sign Up</a>
-            <a href="{% url 'MavPoints:promotions' %}">Rewards</a>
-            <a href="{% url 'MavPoints:rewards' %}">Account Overview</a>
-            <a href="{% url 'MavPoints:rewards' %}">Promotions</a>
-            <a href="{% url 'MavPoints:contact' %}">Contact Us</a>
-        {% endif %}
-
-
-         <div class = "topnav-right" id="myTopnav2">
-             {% if user.is_authenticated %}
-                 <a href="{% url 'logout' %}">Logout</a>
-             {% else %}
-                 <a href="{% url 'login' %}">Login</a>
-             {% endif %}
-         </div>
-    </div>
     <div id="subheader">
         <div class="cart">
           {% with total_items=cart|length %}

@@ -182,7 +182,35 @@ p {
     left: 950px;
 }
 
+.header {
+    text-align: center;
+}
 
+.page_table {
+    margin: auto;
+    width: 50%;
+}
+
+.account_information {
+    border-collapse: separate;
+}
+
+th {
+    text-align: end;
+}
+
+td {
+    padding-left: 10px;
+}
+
+.account_management {
+    border-collapse: separate;
+}
+
+.customer-form {
+    margin: auto;
+    width: 50%;
+}
 
 
 

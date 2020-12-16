@@ -5,6 +5,7 @@ from django.urls import path, re_path
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from .views import SignUpView
+from orders.views import account_orders
 
 app_name = 'MavPoints'
 
@@ -15,9 +16,12 @@ urlpatterns = [
     path('contact', views.contact, name='contact'),
     path('accounts/login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('accounts/logout/', auth_views.LogoutView.as_view(next_page='/'), name='logout'),
+    path('account/', views.account, name='account'),
+    path('account/<int:pk>/edit/', views.customer_info_change, name='customer info change'),
     path('rewards', views.rewards, name='rewards'),
     path('employee_home', views.home_employee, name='employee_home'),
     path('view_customers', views.view_customers, name='view_customers'),
+    path('account/orders', views.account_orders, name='view_orders'),
     path('account/create/', SignUpView.as_view(), name='create_account'),
     path('customer/<int:pk>/edit/', views.edit_customer, name='edit_customer'),
     path('customer/<int:pk>/delete/', views.delete_customer, name='delete_customer'),

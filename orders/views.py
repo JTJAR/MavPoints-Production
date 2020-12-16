@@ -1,3 +1,5 @@
+from datetime import timezone
+
 from django.urls import reverse
 from django.shortcuts import render, redirect
 from .models import OrderItem
@@ -9,6 +11,7 @@ from .models import Order
 from django.conf import settings
 from django.http import HttpResponse
 from django.template.loader import render_to_string
+from MavPoints.models import Customer
 
 
 # import weasyprint
@@ -60,3 +63,9 @@ def order_create(request):
     return render(request,
                   'orders/order/create.html',
                   {'cart': cart, 'form': form})
+
+
+def account_orders(request):
+    order = Order.objects.filter(email__lte=Customer.email)
+    return render(request, 'main_pages/account_orders.html',
+                  {'order': order})
